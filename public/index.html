@@ -5,6 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script>
+        var scale= 1 / window.devicePixelRatio
+        document.write('<meta name="viewport" content="width=device-width, initial-scale='+scale+',maximun-scale='+scale+',minimun-scale='+scale+'">');
+        cuntFontSize();
+        function cuntFontSize(){
+          var html=document.getElementsByTagName('html')[0];
+          var oW=html.getBoundingClientRect().width;
+          //oW=oW>1000? 1000 : oW
+            html.style.fontSize=oW / 15 + 'px';
+        }
+        window.onresize=cuntFontSize;
+    </script>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
